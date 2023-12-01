@@ -37,12 +37,18 @@ class Library {
 
     const readCell = document.createElement("td");
     const readCheckbox = document.createElement("input");
+
     readCheckbox.type = "checkbox";
     readCheckbox.checked = newBook.read;
     readCheckbox.classList.add("checkBoxes");
+
     if (newBook.read) {
       readCheckbox.disabled = true;
     }
+    readCheckbox.addEventListener("click", () => {
+      this.markRead(newBook.id, readCheckbox);
+    });
+
     readCell.appendChild(readCheckbox);
 
     newRow.appendChild(titleCell);
@@ -58,6 +64,7 @@ class Library {
     document.getElementById("read").checked = false;
   }
 }
+const myLibrary = new Library();
 
 const addButton = document.getElementById("addBookButton");
 addButton.addEventListener("click", () => {
@@ -67,13 +74,4 @@ addButton.addEventListener("click", () => {
 
   myLibrary.addBook(titleInput, authorInput, readCheckbox);
 });
-const myLibrary = new Library();
 
-const checkBoxes = document.querySelectorAll(".checkBoxes");
-checkBoxes.forEach((checkbox) => {
-  checkbox.addEventListener("click", () => {
-    if (checkbox === true) {
-      checkbox.disabled = true;
-    }
-  });
-});
