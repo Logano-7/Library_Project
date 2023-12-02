@@ -19,20 +19,19 @@
       <div class="container">
         <h1>Library Project</h1>
         <div id="library">
-          <!-- Add table here -->
           <table id="table" style="min-width: 680px; margin: 2rem">
             <thead>
               <tr>
                 <th>Title</th>
                 <th>Author</th>
-                <th>Read</th>
+                <th id="RRcolumn">Read / Remove</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Name of the Wind</td>
                 <td>Patrick Rothfuss</td>
-                <td>
+                <td class="readCell">
                   <input
                     class="checkBoxes"
                     type="checkbox"
@@ -41,6 +40,7 @@
                     checked
                     disabled
                   />
+                  <button id="exampleRemoveBtn" class="removeBtn">X</button>
                 </td>
               </tr>
             </tbody>

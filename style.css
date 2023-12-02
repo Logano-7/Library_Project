@@ -1,5 +1,4 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Pangolin&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Pangolin&display=swap");
 * {
   font-family: "fredericka the great", cursive;
   font-size: 16px;
@@ -14,7 +13,7 @@
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,16 +26,16 @@ h1 {
 }
 
 table {
-    border-collapse: collapse;
-    border: 1px solid #dee2e6;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6;
 }
 
-td, th {
-    border: 1px solid #dee2e6;
-    padding: 0.75rem;
-    vertical-align: top;
+td,
+th {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  vertical-align: top;
 }
-
 
 th {
   text-align: inherit;
@@ -80,4 +79,54 @@ th {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border-width: 1px;
+}
+
+.readCell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.checkBoxes {
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.removeBtn {
+  padding: 0.1rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  background-color: rgb(70, 0, 0);
+  color: #fff;
+  border-color: rgb(70, 0, 0);
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  margin-left: 1rem;
+}
+
+.removeBtn:hover {
+  background-color: rgb(50, 0, 0);
+  border-color: rgb(50, 0, 0);
+}
+
+#RRcolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#exampleRemoveBtn {
+  background-color: rgb(50, 0, 0);
+  border-color: rgb(50, 0, 0);
+  cursor: not-allowed;
+}
+
+#read {
+  cursor: pointer;
 }

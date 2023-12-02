@@ -37,6 +37,9 @@ class Library {
 
     const readCell = document.createElement("td");
     const readCheckbox = document.createElement("input");
+    const removeButton = document.createElement("button");
+
+    readCell.classList.add("readCell");
 
     readCheckbox.type = "checkbox";
     readCheckbox.checked = newBook.read;
@@ -49,8 +52,16 @@ class Library {
       this.markRead(newBook.id, readCheckbox);
     });
 
-    readCell.appendChild(readCheckbox);
+    removeButton.textContent = "X";
+    removeButton.classList.add("removeBtn");
 
+    removeButton.addEventListener("click", () => {
+      const row = removeButton.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      this.removeBook(newBook.id);
+    });
+
+    readCell.append(readCheckbox, removeButton);
     newRow.appendChild(titleCell);
     newRow.appendChild(authorCell);
     newRow.appendChild(readCell);
@@ -62,6 +73,14 @@ class Library {
     document.getElementById("title").value = "";
     document.getElementById("author").value = "";
     document.getElementById("read").checked = false;
+  }
+
+  removeBook(id) {
+    this.books.forEach((book, index) => {
+      if (book.id === id) {
+        this.books.splice(index, 1);
+      }
+    });
   }
 }
 const myLibrary = new Library();
@@ -75,3 +94,14 @@ addButton.addEventListener("click", () => {
   myLibrary.addBook(titleInput, authorInput, readCheckbox);
 });
 
+const removeButton = document.getElementById("removeBookButton");
+removeButton.addEventListener("click", () => {
+  const checkBoxes = document.querySelectorAll(".checkBoxes");
+  checkBoxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      const row = checkbox.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+      myLibrary.removeBook(checkbox.id);
+    }
+  });
+});
